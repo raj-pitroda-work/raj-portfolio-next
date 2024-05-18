@@ -1,0 +1,43 @@
+//light theme
+$dark-color: #322f30;
+$light-color: #f4ecde;
+$control-light-border-color: rgba(0, 0, 0, 0.23);
+$bg1: #f4ecde; // white-brown
+$bg2: white;
+$bg3: $dark-color;
+$bg4: $bg1;
+
+// // // dark theme
+// $dark-color: white;
+// $light-color: white;
+// $control-light-border-color: rgba(255, 255, 255, 0.23);
+// $bg1: #050201;
+// $bg2: #151514;
+// $bg3: $bg1;
+// $bg4: $bg2;
+
+//common-in-both
+$theme-color: #ff5a1e;
+$content-font-size: 16px;
+$header-height: 5rem;
+
+$theme-colors: (
+  "someColor": #000,
+  "anotherColor": #fff,
+);
+
+:root {
+  .body {
+    @each $key, $value in $theme-colors {
+      --#{$key}: #{$value};
+    }
+    --bgred: red;
+  }
+}
+
+:export {
+  @each $key, $value in $theme-colors {
+    #{unquote($key)}: $value;
+    --bgRed: #{red};
+  }
+}
