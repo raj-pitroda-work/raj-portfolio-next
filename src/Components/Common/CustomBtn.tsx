@@ -6,9 +6,9 @@ const CustomBtn: React.FC<{
   variant?: "outlined" | "contained";
   type?: "button" | "submit";
   onClick?: () => void;
-}> = ({ btnName, className, variant, onClick, type }) => {
+}> = ({ btnName, className, variant, onClick, type, isAutoFocus = false }) => {
   return (
-    <div className="relative z-0">
+    <span className="relative z-0 inline-block h-full w-auto">
       <button
         type={type ? type : "button"}
         className={`custom-btn text-sm ${variant ? variant : "outlined"}  ${
@@ -18,7 +18,7 @@ const CustomBtn: React.FC<{
       >
         {btnName}
       </button>
-    </div>
+    </span>
   );
 };
 

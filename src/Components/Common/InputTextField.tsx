@@ -9,7 +9,18 @@ const InputTextField: React.FC<{
   className?: string;
   wrapperClassName?: string;
   type?: React.InputHTMLAttributes<unknown>["type"];
-}> = ({ lbl, noOfRows, className, wrapperClassName, name, type }) => {
+  setValue?: (val: string) => void;
+  disabled?: boolean;
+}> = ({
+  lbl,
+  noOfRows,
+  className,
+  wrapperClassName,
+  name,
+  type,
+  setValue,
+  disabled,
+}) => {
   const [field, meta] = useField(name);
   const { setFieldValue, setFieldTouched } = useFormikContext();
 
@@ -23,17 +34,25 @@ const InputTextField: React.FC<{
           name={name}
           label={lbl}
           size="small"
+          disabled={disabled}
           variant="outlined"
           className={`w-full ${className}`}
-          multiline={Number(noOfRows) > 1}
-          rows={Number(noOfRows ?? 1)}
+          multiline={true}
+          rows={noOfRows ? Number(noOfRows) : undefined}
+          maxRows={10}
           value={field.value}
           onChange={(e) => {
             setFieldValue(name, e.target.value);
+            if (setValue) {
+              setValue(e.target.value);
+            }
           }}
           onBlur={(e) => {
             setFieldValue(name, e.target.value?.trim(), true);
             setFieldTouched(name, true, true);
+            if (setValue) {
+              setValue(e.target.value?.trim());
+            }
           }}
           error={meta.error && meta.touched ? true : false}
           helperText={meta.error && meta.touched ? meta.error : ""}

@@ -1,15 +1,12 @@
+"use client";
 import { Grid, Typography } from "@mui/material";
-import Image from "next/image";
-import { BsFiletypeCss, BsFiletypeScss } from "react-icons/bs";
-import { FaReact } from "react-icons/fa";
-import { SiJavascript, SiRedux, SiTypescript } from "react-icons/si";
-import { TbBrandNextjs } from "react-icons/tb";
-import FreePikImgRender from "../Common/FreePikImgRender";
-import { PROFILE_DETAIL } from "@/utils/Constant";
-import SlideAnimation from "../Common/Animations/SlideAnimation";
 import OpacityAnimation from "../Common/Animations/OpacityAnimation";
+import SlideAnimation from "../Common/Animations/SlideAnimation";
+import { GetUserContextValue } from "../Common/EditContextWrapper";
+import FreePikImgRender from "../Common/FreePikImgRender";
 
 const DevSkills = () => {
+  const values = GetUserContextValue();
   return (
     <>
       <Grid container className="primary-bg" id="SkillWrapperId">
@@ -25,7 +22,7 @@ const DevSkills = () => {
           </SlideAnimation>
           <div className="flex items-center h-5/6">
             <Grid container className="xl:pr-40 lg:pr-14" spacing={2}>
-              {PROFILE_DETAIL.Skills?.map((x: any) => (
+              {values?.Skills?.map((x: any) => (
                 <Grid item md={4} sm={3} xs={6} key={`grid-${x.name}`}>
                   <OpacityAnimation>
                     <div className="skill-card-wrapper">

@@ -1,4 +1,4 @@
-import { PROFILE_DETAIL } from "@/utils/Constant";
+"use client";
 import {
   Grid,
   Table,
@@ -13,8 +13,10 @@ import { RiLinkedinFill, RiUserFill } from "react-icons/ri";
 import FreePikImgRender from "../Common/FreePikImgRender";
 import OpacityAnimation from "../Common/Animations/OpacityAnimation";
 import SlideAnimation from "../Common/Animations/SlideAnimation";
+import { GetUserContextValue } from "../Common/EditContextWrapper";
 
 const AboutBanner = () => {
+  const values = GetUserContextValue();
   const renderCopyTableCell = (
     href: string,
     displayText: string,
@@ -59,14 +61,13 @@ const AboutBanner = () => {
               fontWeight={600}
               className="c-theme-title"
             >
-              {PROFILE_DETAIL.Role} with {PROFILE_DETAIL.Experience} of
-              experience.
+              {values.Role} with {values.Experience} of experience.
             </Typography>
           </SlideAnimation>
 
           <br />
           <SlideAnimation delay={0.5}>
-            <Typography component={"p"}>{PROFILE_DETAIL.ShortBio}</Typography>
+            <Typography component={"p"}>{values.ShortBio}</Typography>
           </SlideAnimation>
           <OpacityAnimation delay={0.2}>
             <Table className="about-info-table mt-6">
@@ -76,15 +77,15 @@ const AboutBanner = () => {
                     <RiUserFill fontSize={26} className="mr-2" />
                     Full Name
                   </TableCell>
-                  <TableCell>{PROFILE_DETAIL.FullName}</TableCell>
+                  <TableCell>{values.FullName}</TableCell>
                 </TableRow>
                 <TableRow>
                   <TableCell>
                     <MdEmail fontSize={26} className="mr-2" /> Email
                   </TableCell>
                   {renderCopyTableCell(
-                    `mailto:${PROFILE_DETAIL.Email1};${PROFILE_DETAIL.Email2}`,
-                    `${PROFILE_DETAIL.Email1}; ${PROFILE_DETAIL.Email2}`
+                    `mailto:${values.Email1};${values.Email2}`,
+                    `${values.Email1}; ${values.Email2}`
                   )}
                 </TableRow>
                 <TableRow>
@@ -92,19 +93,15 @@ const AboutBanner = () => {
                     <IoMdCall fontSize={26} className="mr-2" /> Contact No
                   </TableCell>
                   {renderCopyTableCell(
-                    `tel:${PROFILE_DETAIL.MobileNo}`,
-                    PROFILE_DETAIL.MobileNoForView
+                    `tel:${values.MobileNo}`,
+                    values.MobileNoForView
                   )}
                 </TableRow>
                 <TableRow>
                   <TableCell>
                     <RiLinkedinFill fontSize={26} className="mr-2" /> Linked In
                   </TableCell>
-                  {renderCopyTableCell(
-                    PROFILE_DETAIL.LinkedIn,
-                    PROFILE_DETAIL.LinkedIn,
-                    true
-                  )}
+                  {renderCopyTableCell(values.LinkedIn, values.LinkedIn, true)}
                 </TableRow>
               </TableBody>
             </Table>

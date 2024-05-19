@@ -20,24 +20,3 @@ $bg4: $bg1;
 $theme-color: #ff5a1e;
 $content-font-size: 16px;
 $header-height: 5rem;
-
-$theme-colors: (
-  "someColor": #000,
-  "anotherColor": #fff,
-);
-
-:root {
-  .body {
-    @each $key, $value in $theme-colors {
-      --#{$key}: #{$value};
-    }
-    --bgred: red;
-  }
-}
-
-:export {
-  @each $key, $value in $theme-colors {
-    #{unquote($key)}: $value;
-    --bgRed: #{red};
-  }
-}

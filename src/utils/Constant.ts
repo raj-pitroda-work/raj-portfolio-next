@@ -4,15 +4,6 @@ import { FaReact } from "react-icons/fa";
 import { SiJavascript, SiRedux, SiTypescript } from "react-icons/si";
 import { TbBrandNextjs } from "react-icons/tb";
 
-export enum LOADER_TYPE_ENUM {
-  Cube = "Dark Cube",
-  TypingDots = "Typing Dots",
-  Spinner = "Spinner",
-  Circle = "Circle",
-  Stepper = "Stepper",
-  SquareBounce = "Square Bounce",
-}
-
 export const PROFILE_DETAIL: any = {
   FullName: "Pitroda Rajkumar Kamleshbhai",
   Name: "Raj Pitroda",
@@ -24,6 +15,8 @@ export const PROFILE_DETAIL: any = {
   LinkedIn: "https://www.linkedin.com/in/pitroda-rajkumar-09a861271/",
   WhatsAppNo: "918155028499",
   Experience: "4+ years",
+  ResumeLink:
+    "https://drive.google.com/file/d/1js3vjJPEAlfkDNASvi2eGiqVf1_FWgQR/view?usp=sharing",
   ShortBio:
     "Experienced frontend developer proficient in HTML, CSS, SCSS and JavaScript, with expertise in React and Next. Dedicated to crafting intuitive user interfaces, optimizing performance, and embracing modern web technologies. Passionate about  impactful digital experiences. Let's collaborate on creating exceptional web applications.",
   UpdatedAt: "May-2024",

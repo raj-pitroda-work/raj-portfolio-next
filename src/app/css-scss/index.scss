@@ -293,6 +293,50 @@
   }
 }
 
+.edit-sidebar{
+  border: 5px solid var(--theme-color);
+  background-color: var(--bg4);
+  margin-right: 10px;
+}
+
+
+.config{
+  .edit-text{
+    cursor: pointer;
+  }
+  .edit-text:hover{
+    // border-right: 2px dashed red;
+    border: 2px dashed red;
+    padding: 10px;
+    .icn{
+      opacity: 1;
+    }
+  }
+}
+
+.edit-text{
+  .icn{
+    opacity: 0;
+    transition: all 0.2s linear;
+  }
+}
+
+.open-sidebar{
+  opacity: 0.8;
+  pointer-events: none;
+  cursor: not-allowed;
+}
+.edit-sidebar{
+  opacity: 0;
+  scale: 0.5;
+  transition: all 0.2s ease-in;
+  &.active{
+    opacity: 1;
+    scale: 1;
+  }
+}
+
+
 @media screen and (max-width: 1199px) {
   body,
   html {

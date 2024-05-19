@@ -3,6 +3,7 @@ import Header from "@/Components/Header/Header";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./css-scss/index.scss";
+import EditContextWrapper from "@/Components/Common/EditContextWrapper";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,9 +20,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <Header />
-        <div className="page-main-content">{children}</div>
-        <Footer />
+        <EditContextWrapper>
+          <>
+            <Header />
+            <div className="page-main-content">{children}</div>
+            <Footer />
+          </>
+        </EditContextWrapper>
       </body>
     </html>
   );

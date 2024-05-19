@@ -5,9 +5,9 @@ import DevSkills from "@/Components/Home/DevSkills";
 import MainBanner from "@/Components/Home/MainBanner";
 import ProjectDetail from "@/Components/Home/ProjectDetail";
 
-export default function Home() {
+export default function CreatePortfolio() {
   return (
-    <div className="home-wrapper ">
+    <div className="home-wrapper config">
       <div className="circle-navigation-wrapper flex flex-col">
         <RenderRedirectLink className="circle" hideText />
       </div>

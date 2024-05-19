@@ -1,11 +1,11 @@
 "use client";
-import { PROFILE_DETAIL } from "@/utils/Constant";
 import { Avatar } from "@mui/material";
 import RenderRedirectLink from "../Common/RenderRedirectLink";
 import ThemeSwitch from "../Common/ThemeSwitch";
+import { GetUserContextValue } from "../Common/EditContextWrapper";
 
 const Header = () => {
-  const userName = PROFILE_DETAIL.Name;
+  const userName = GetUserContextValue().Name;
   const nameArr = userName?.split(" ");
 
   return (
