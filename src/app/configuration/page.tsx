@@ -1,12 +1,7 @@
-import LoaderSelection from "@/Components/Loader/LoaderSelection";
 import React from "react";
 
 const Configuration = () => {
-  return (
-    <div>
-      <LoaderSelection />
-    </div>
-  );
+  return <div>Loader</div>;
 };
 
 export default Configuration;
