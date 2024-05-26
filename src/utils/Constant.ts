@@ -1,9 +1,12 @@
+//import start
 import { AiOutlineGithub } from "react-icons/ai";
 import { BsFiletypeCss, BsFiletypeScss } from "react-icons/bs";
 import { FaReact } from "react-icons/fa";
 import { SiJavascript, SiRedux, SiTypescript } from "react-icons/si";
 import { TbBrandNextjs } from "react-icons/tb";
+//import end
 
+//prof detail start
 export const PROFILE_DETAIL: any = {
   FullName: "Pitroda Rajkumar Kamleshbhai",
   Name: "Raj Pitroda",
@@ -157,7 +160,9 @@ medicines and order tracking functionality.`,
     },
   ],
 };
+//prof detail end
 
+//theme start
 export const THEME_COLOR: {
   common: { [key: string]: string };
   light: { [key: string]: string };
@@ -187,3 +192,4 @@ export const THEME_COLOR: {
     bg4: "#151514", // bg2
   },
 };
+//theme end
