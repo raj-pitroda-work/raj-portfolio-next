@@ -1,9 +1,11 @@
+import "./css-scss/index.scss";
+import "react-toastify/dist/ReactToastify.css";
 import Footer from "@/Components/Footer/Footer";
 import Header from "@/Components/Header/Header";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import "./css-scss/index.scss";
 import EditContextWrapper from "@/Components/Common/EditContextWrapper";
+import { ToastContainer } from "react-toastify";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -27,6 +29,12 @@ export default function RootLayout({
             <Footer />
           </>
         </EditContextWrapper>
+        <ToastContainer
+          position="top-right"
+          autoClose={3000}
+          closeOnClick
+          theme="colored"
+        />
       </body>
     </html>
   );

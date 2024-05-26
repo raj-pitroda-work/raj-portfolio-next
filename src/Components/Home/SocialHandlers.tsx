@@ -19,22 +19,29 @@ const SocialHandlers: React.FC<{ icnClass: string; hideLbl?: boolean }> = ({
       )}
       &nbsp;
       <EditComp name="MobileNo">
-        <a href={`tel:${values.MobileNo}`} className="contact-icn">
+        <a
+          href={`tel:${values.MobileNo}`}
+          className="contact-icn relative z-10"
+        >
           <IoMdCall className={icnClass} />
         </a>
       </EditComp>
       &nbsp;
       <EditComp name="Email1">
         <a
-          href={`mailto:${values.Email1};${values.Email2}`}
-          className="contact-icn"
+          href={`mailto:${values.AllEmail}`}
+          className="contact-icn relative z-10"
         >
           <MdOutlineMailOutline className={icnClass} />
         </a>
       </EditComp>
       &nbsp;
       <EditComp name="LinkedIn">
-        <a href={values.LinkedIn} target="_blank" className="contact-icn">
+        <a
+          href={values.LinkedIn}
+          target="_blank"
+          className="contact-icn relative z-10"
+        >
           <FaLinkedinIn className={icnClass} />
         </a>
       </EditComp>
@@ -43,7 +50,7 @@ const SocialHandlers: React.FC<{ icnClass: string; hideLbl?: boolean }> = ({
         <a
           href={`//api.whatsapp.com/send?phone=${values.WhatsAppNo}`}
           target="_blank"
-          className="contact-icn"
+          className="contact-icn relative z-10"
         >
           <FaWhatsapp className={icnClass} />
         </a>

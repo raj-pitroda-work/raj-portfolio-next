@@ -1,37 +1,33 @@
 import React from "react";
 import { FaPencilAlt } from "react-icons/fa";
-import { GetUserContextValue } from "./EditContextWrapper";
+import { GetUserContextValue, PROF_DETAIL_KEY } from "./EditContextWrapper";
 
 const EditComp: React.FC<{
-  name:
-    | "FullName"
-    | "Name"
-    | "Role"
-    | "MobileNo"
-    | "MobileNoForView"
-    | "Email1"
-    | "Email2"
-    | "LinkedIn"
-    | "WhatsAppNo"
-    | "Experience"
-    | "ShortBio"
-    | "ResumeLink"
-    | "UpdatedAt";
+  name: PROF_DETAIL_KEY;
   children?: any;
-}> = ({ name, children }) => {
+  subKey?: string;
+  index?: number;
+  onClick?: () => void;
+}> = ({ name, children, index, subKey, onClick }) => {
   const { setSelectedKey } = GetUserContextValue();
+
   return (
     <>
       <span
         className="relative items-center edit-text inline-block w-auto"
-        onClick={() => {
-          setSelectedKey(name);
+        onClick={(e) => {
+          e.stopPropagation();
+          if (onClick) {
+            onClick();
+          } else {
+            setSelectedKey(name, e.currentTarget, index, subKey);
+          }
         }}
       >
-        <span style={{ pointerEvents: "none" }}>{children}</span>
+        <span className="edit-section-wrapper">{children}</span>
         <FaPencilAlt
-          fontSize={18}
-          className="ml-2 icn  absolute -right-6 bottom-4 c-theme"
+          fontSize={16}
+          className="ml-2 icn  absolute bottom-1 c-theme right-1"
           color="black"
         />
       </span>

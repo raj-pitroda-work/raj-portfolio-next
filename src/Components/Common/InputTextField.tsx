@@ -37,9 +37,9 @@ const InputTextField: React.FC<{
           disabled={disabled}
           variant="outlined"
           className={`w-full ${className}`}
-          multiline={true}
+          multiline={type ? false : true}
           rows={noOfRows ? Number(noOfRows) : undefined}
-          maxRows={10}
+          maxRows={Number(noOfRows) ? undefined : 10}
           value={field.value}
           onChange={(e) => {
             setFieldValue(name, e.target.value);

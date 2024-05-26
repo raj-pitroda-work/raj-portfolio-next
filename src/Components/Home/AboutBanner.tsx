@@ -13,21 +13,27 @@ import { RiLinkedinFill, RiUserFill } from "react-icons/ri";
 import FreePikImgRender from "../Common/FreePikImgRender";
 import OpacityAnimation from "../Common/Animations/OpacityAnimation";
 import SlideAnimation from "../Common/Animations/SlideAnimation";
-import { GetUserContextValue } from "../Common/EditContextWrapper";
+import {
+  GetUserContextValue,
+  PROF_DETAIL_KEY,
+} from "../Common/EditContextWrapper";
+import EditComp from "../Common/EditComp";
 
 const AboutBanner = () => {
-  const values = GetUserContextValue();
+  const values: any = GetUserContextValue();
   const renderCopyTableCell = (
     href: string,
-    displayText: string,
+    displayText: PROF_DETAIL_KEY,
     newTab?: boolean
   ) => {
     return (
       <TableCell>
         <div className="content-copy">
-          <a href={href} target={newTab ? "_blank" : "_self"}>
-            {displayText}
-          </a>
+          <EditComp name={displayText}>
+            <a href={href} target={newTab ? "_blank" : "_self"}>
+              {values[displayText] as string}
+            </a>
+          </EditComp>
           <IoIosCopy
             title="Copy"
             fontSize={22}
@@ -61,13 +67,17 @@ const AboutBanner = () => {
               fontWeight={600}
               className="c-theme-title"
             >
-              {values.Role} with {values.Experience} of experience.
+              <EditComp name="Role"> {values.Role}</EditComp> with{" "}
+              <EditComp name="Experience"> {values.Experience} </EditComp>
+              &nbsp;of experience.
             </Typography>
           </SlideAnimation>
 
           <br />
           <SlideAnimation delay={0.5}>
-            <Typography component={"p"}>{values.ShortBio}</Typography>
+            <Typography component={"p"}>
+              <EditComp name="ShortBio">{values.ShortBio}</EditComp>
+            </Typography>
           </SlideAnimation>
           <OpacityAnimation delay={0.2}>
             <Table className="about-info-table mt-6">
@@ -77,16 +87,15 @@ const AboutBanner = () => {
                     <RiUserFill fontSize={26} className="mr-2" />
                     Full Name
                   </TableCell>
-                  <TableCell>{values.FullName}</TableCell>
+                  <TableCell>
+                    <EditComp name="FullName">{values.FullName}</EditComp>
+                  </TableCell>
                 </TableRow>
                 <TableRow>
                   <TableCell>
                     <MdEmail fontSize={26} className="mr-2" /> Email
                   </TableCell>
-                  {renderCopyTableCell(
-                    `mailto:${values.Email1};${values.Email2}`,
-                    `${values.Email1}; ${values.Email2}`
-                  )}
+                  {renderCopyTableCell(`mailto:${values.AllEmail}`, `AllEmail`)}
                 </TableRow>
                 <TableRow>
                   <TableCell>
@@ -94,14 +103,14 @@ const AboutBanner = () => {
                   </TableCell>
                   {renderCopyTableCell(
                     `tel:${values.MobileNo}`,
-                    values.MobileNoForView
+                    "MobileNoForView"
                   )}
                 </TableRow>
                 <TableRow>
                   <TableCell>
                     <RiLinkedinFill fontSize={26} className="mr-2" /> Linked In
                   </TableCell>
-                  {renderCopyTableCell(values.LinkedIn, values.LinkedIn, true)}
+                  {renderCopyTableCell(values.LinkedIn, "LinkedIn", true)}
                 </TableRow>
               </TableBody>
             </Table>

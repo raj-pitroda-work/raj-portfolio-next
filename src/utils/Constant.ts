@@ -11,7 +11,7 @@ export const PROFILE_DETAIL: any = {
   MobileNo: "+918155028499",
   MobileNoForView: "+91 81550 28499",
   Email1: "pitrodarj@gmail.com",
-  Email2: "pitrodaraj1512@gmail.com",
+  AllEmail: "pitrodarj@gmail.com; pitrodaraj1512@gmail.com",
   LinkedIn: "https://www.linkedin.com/in/pitroda-rajkumar-09a861271/",
   WhatsAppNo: "918155028499",
   Experience: "4+ years",
@@ -73,6 +73,7 @@ export const PROFILE_DETAIL: any = {
   ],
   Projects: [
     {
+      id: 1,
       name: "SM-FRONT (E-COMMERCE MEDICINE PURCHASE)",
       desc: `Developed an e-commerce platform using Next.js with Tyescript
 and Redux with multilanguage support for purchasing medicines.
@@ -90,6 +91,7 @@ secure payment processing. Implemented an image gallery for
 medicines and order tracking functionality.`,
     },
     {
+      id: 2,
       name: "SM-ADMIN (E-COMMERCE ADMIN)",
       desc: `Developed an e-commerce admin panel using React.js with
   Tyescript and Redux with multilanguage support.
@@ -100,6 +102,7 @@ medicines and order tracking functionality.`,
   Management, Medicine list etc`,
     },
     {
+      id: 3,
       name: `. INSMART PAT IENT`,
       desc: `Developed website panel using Next.js with Tyescript and Redux
   to facilitating direct interaction and appointment bookings with
@@ -113,6 +116,7 @@ medicines and order tracking functionality.`,
   Listing and based on Doctor availability slot listing.`,
     },
     {
+      id: 4,
       name: `INSMART ADMIN`,
       desc: `Developed a dynamic form builder website using React.js with
   Tyescript and Redux and for backend used .Net web api, MSSQL.
@@ -125,6 +129,7 @@ medicines and order tracking functionality.`,
   validation. Role based form access`,
     },
     {
+      id: 5,
       name: `TWITTER CAMPAIGN MANAGMENT`,
       desc: `Developed a website using website using React.js with Tyescript
   and Redux. The system facilitated automated interaction with
@@ -137,6 +142,7 @@ medicines and order tracking functionality.`,
   Authentication`,
     },
     {
+      id: 6,
       name: `ISCTV9 - CURRENCY EXCHANGE MANAGEMENT`,
       desc: `Developed a website using website using React.js with Tyescript
   and Redux. The system facilitated currency exchange.

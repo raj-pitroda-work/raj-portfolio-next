@@ -1,12 +1,18 @@
 "use client";
 import { Grid, Typography } from "@mui/material";
+import { BiPlus } from "react-icons/bi";
 import OpacityAnimation from "../Common/Animations/OpacityAnimation";
 import SlideAnimation from "../Common/Animations/SlideAnimation";
+import DeleteComp from "../Common/DeleteComp";
 import { GetUserContextValue } from "../Common/EditContextWrapper";
 import FreePikImgRender from "../Common/FreePikImgRender";
+import { useState } from "react";
+import AddSkillModal from "./AddSkillModal";
 
 const DevSkills = () => {
   const values = GetUserContextValue();
+  const [showAdd, setShowAdd] = useState<boolean>(false);
+
   return (
     <>
       <Grid container className="primary-bg" id="SkillWrapperId">
@@ -22,34 +28,68 @@ const DevSkills = () => {
           </SlideAnimation>
           <div className="flex items-center h-5/6">
             <Grid container className="xl:pr-40 lg:pr-14" spacing={2}>
-              {values?.Skills?.map((x: any) => (
-                <Grid item md={4} sm={3} xs={6} key={`grid-${x.name}`}>
+              {values?.Skills?.map((x: any, i: number) => (
+                <Grid item md={4} sm={3} xs={6} key={`grid-${i}`}>
                   <OpacityAnimation>
-                    <div className="skill-card-wrapper">
-                      <div className="skill-card">
-                        <Typography
-                          fontWeight={600}
-                          className="flex justify-center items-center"
-                          component={"div"}
-                        >
-                          <x.icon
-                            className="xs:mr-4"
-                            style={{ color: x.icnColor }}
-                          />
-                          <Typography className="text-center" component={"div"}>
-                            <span className="font-bold lg:text-lg xl:text-xl md:text-lg">
-                              {x.name}
-                            </span>
-                            <p className="font-extralight text-sm">
-                              {x.experience}
-                            </p>
+                    <DeleteComp
+                      name="Skills"
+                      index={i}
+                      isDeleteAllowed={i > 0 || values?.Skills?.length > 1}
+                    >
+                      <div className="skill-card-wrapper">
+                        <div className="skill-card">
+                          <Typography
+                            fontWeight={600}
+                            className="flex justify-center items-center"
+                            component={"div"}
+                          >
+                            {x.icon && (
+                              <x.icon
+                                className={`xs:mr-4 ${
+                                  x.icnColor ? "" : "c-theme"
+                                }`}
+                                style={{ color: x.icnColor }}
+                              />
+                            )}
+                            <Typography
+                              className="text-center"
+                              component={"div"}
+                            >
+                              <span className="font-bold lg:text-lg xl:text-xl md:text-lg">
+                                {x.name}
+                              </span>
+                              <p className="font-extralight text-sm">
+                                {x.experience}
+                              </p>
+                            </Typography>
                           </Typography>
-                        </Typography>
+                        </div>
                       </div>
-                    </div>
+                    </DeleteComp>
                   </OpacityAnimation>
                 </Grid>
               ))}
+              {values?.Skills?.length <= 11 && (
+                <Grid item md={4} sm={3} xs={6}>
+                  <div className="skill-card-wrapper opacity-65">
+                    <div className="skill-add-card">
+                      <Typography
+                        fontWeight={600}
+                        className="flex justify-center items-center"
+                        component={"div"}
+                        onClick={() => setShowAdd(true)}
+                      >
+                        <BiPlus className="xs:mr-4" />
+                        <Typography className="text-center" component={"div"}>
+                          <span className="lg:text-lg xl:text-lg md:text-lg">
+                            Add
+                          </span>
+                        </Typography>
+                      </Typography>
+                    </div>
+                  </div>
+                </Grid>
+              )}
             </Grid>
           </div>
         </Grid>
@@ -63,6 +103,9 @@ const DevSkills = () => {
           </OpacityAnimation>
         </Grid>
       </Grid>
+      {showAdd && (
+        <AddSkillModal isOpen={showAdd} handleClose={() => setShowAdd(false)} />
+      )}
     </>
   );
 };

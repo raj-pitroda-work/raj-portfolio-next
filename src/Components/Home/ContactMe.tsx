@@ -18,6 +18,7 @@ import SlideAnimation from "../Common/Animations/SlideAnimation";
 import { Formik } from "formik";
 import * as Yup from "yup";
 import { TSendEmailReq } from "@/services/userServiceType";
+import { toast } from "react-toastify";
 
 //to distinct
 const CountryList = all().reduce((acc: any, country) => {
@@ -25,7 +26,11 @@ const CountryList = all().reduce((acc: any, country) => {
     (c: any) => c.countryCallingCode === country.countryCallingCode
   );
   if (!existingCountry) {
-    acc.push(country);
+    acc.push({
+      ...country,
+      value: country.countryCallingCode,
+      label: country.countryCallingCode,
+    });
   }
   return acc;
 }, []);
@@ -40,6 +45,8 @@ type TInitVal = {
 };
 
 const ContactMe = () => {
+  const [isLoading, setLoading] = useState(false);
+
   const initialValues: TInitVal = {
     name: "",
     countryCode: CountryList.find((x: any) => x.countryCode === "IN"),
@@ -62,6 +69,7 @@ const ContactMe = () => {
   });
 
   const handleSendMsg = (values: TInitVal) => {
+    setLoading(true);
     const { countryCode, email, message, mobileNo, name, subject } = values;
     const payload: TSendEmailReq = {
       countryCode: "+" + countryCode.countryCallingCode,
@@ -71,9 +79,16 @@ const ContactMe = () => {
       name,
       subject,
     };
-    userService.sendEmail(payload).then((res) => {
-      console.log("ressss", res);
-    });
+    userService
+      .sendEmail(payload)
+      .then((res) => {
+        if (res) {
+          toast.success(res);
+        }
+      })
+      .finally(() => {
+        setLoading(false);
+      });
   };
 
   return (
@@ -112,6 +127,9 @@ const ContactMe = () => {
                         getOptionLabel={(option) =>
                           `+${option.countryCallingCode}`
                         }
+                        isOptionEqualToValue={(opt: any, val: any) => {
+                          return opt.value === val.value;
+                        }}
                         renderInput={(params) => (
                           <TextField
                             {...params}
@@ -152,6 +170,7 @@ const ContactMe = () => {
                   <SlideAnimation translate="bottom" delay={0.2}>
                     <div className="flex gap-4 mt-6">
                       <CustomBtn
+                        isLoading={isLoading}
                         type="submit"
                         btnName="Send Message"
                         className="opacity-90"

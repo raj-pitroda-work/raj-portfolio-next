@@ -2,6 +2,7 @@
 import React from "react";
 import SocialHandlers from "../Home/SocialHandlers";
 import { GetUserContextValue } from "../Common/EditContextWrapper";
+import EditComp from "../Common/EditComp";
 
 const Footer = () => {
   const values = GetUserContextValue();
@@ -15,13 +16,15 @@ const Footer = () => {
           />
         </div>
         <div className="text-center">
-          <p className="md:text-sm xs:text-sm ">Developed By: {values.Name}</p>
+          <p className="md:text-sm xs:text-sm ">
+            Developed By: <EditComp name="Name">{values.Name}</EditComp>
+          </p>
           <p className="xs:text-sm md:text-sm ">
             ©2024 Copyright all rights reserved
           </p>
         </div>
         <p className="mr-4 md:text-sm xs:text-sm xs:mt-0.5 md:mt-0">
-          {values.UpdatedAt}
+          <EditComp name="UpdatedAt">{values.UpdatedAt}</EditComp>
         </p>
       </div>
     </>
