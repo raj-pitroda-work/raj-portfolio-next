@@ -526,13 +526,6 @@ function VideoCall() {
     setSessionLeaveConfirm(true);
   };
 
-  const handleConfirmSessionEnd = () => {
-    zmClient.leave().then((res: any) => {
-      router.push(`/appointments/details/${appointmentId}`);
-      setSessionLeaveConfirm(false);
-    });
-  };
-
   const onConfirmModalCls = () => {
     setSessionLeaveConfirm(false);
   };
