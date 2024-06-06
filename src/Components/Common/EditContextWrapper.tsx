@@ -1,8 +1,8 @@
 "use client";
-import { PROFILE_DETAIL } from "@/utils/Constant";
 import React, { createContext, useContext, useState } from "react";
 import { IconType } from "react-icons";
 import UpdateMainDetail from "./UpdateMainDetail";
+import ProfDetail from "../../../public/profile-detail.json";
 
 export type PROF_DETAIL_KEY =
   | "FullName"
@@ -22,6 +22,7 @@ export type PROF_DETAIL_KEY =
   | "Skills"
   | "ProfImg"
   | "";
+
 export const EditContext = createContext<{
   FullName: string;
   Name: string;
@@ -85,7 +86,7 @@ export const EditContext = createContext<{
 const EditContextWrapper: React.FC<{ children: React.ReactElement }> = ({
   children,
 }) => {
-  const [details, setDetails] = useState(PROFILE_DETAIL);
+  const [details, setDetails] = useState<any>(ProfDetail);
   const [selectedKeyDetail, setSelectedKeyDetail] = useState<{
     keyName: PROF_DETAIL_KEY;
     target: EventTarget | null;

@@ -6,6 +6,7 @@ import DevSkills from "@/Components/Home/DevSkills";
 import MainBanner from "@/Components/Home/MainBanner";
 import ProjectDetail from "@/Components/Home/ProjectDetail";
 import { useLayoutEffect } from "react";
+import Repo from "../repo/page";
 
 export default function CreatePortfolio() {
   useLayoutEffect(() => {
@@ -17,6 +18,7 @@ export default function CreatePortfolio() {
   }, []);
   return (
     <div className="home-wrapper">
+      <Repo />
       <div className="circle-navigation-wrapper flex flex-col">
         <RenderRedirectLink className="circle" hideText />
       </div>

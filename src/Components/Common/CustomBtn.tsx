@@ -2,7 +2,7 @@ import { CircularProgress } from "@mui/material";
 import React from "react";
 
 const CustomBtn: React.FC<{
-  btnName: string;
+  btnName: string | JSX.Element;
   className?: string;
   variant?: "outlined" | "contained";
   type?: "button" | "submit";
