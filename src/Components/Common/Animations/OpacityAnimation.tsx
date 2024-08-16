@@ -21,13 +21,12 @@ const OpacityAnimation: React.FC<{
     <motion.span
       ref={ref}
       variants={{
-        hidden: { opacity: 0, scale: 0.5 },
+        hidden: { opacity: 0, scale: 0.2 },
         visible: { opacity: 1, scale: 1 },
       }}
       // whileInView={"visible"}
       transition={{
-        duration: 0.4,
-        delay: delay,
+        duration: 0.2,
         ease: "linear",
       }}
       initial="hidden"

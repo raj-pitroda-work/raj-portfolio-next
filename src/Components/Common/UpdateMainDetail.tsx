@@ -96,7 +96,7 @@ const UpdateMainDetail = () => {
                   }
                 />
               </div>
-              <div className="dialog-footer flex gap-4 mt-6 w-full justify-end p-2">
+              <div className="dialog-footer flex gap-4 w-full justify-end p-2">
                 <CustomBtn
                   type="submit"
                   btnName="Save"

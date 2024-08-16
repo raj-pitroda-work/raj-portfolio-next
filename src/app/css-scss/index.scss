@@ -248,6 +248,7 @@
   .project-detail {
     background-color: var(--bg1);
     padding: 5px;
+    width: 99%;
     box-shadow: 5px 5px 1px -1px var(--dark-color);
   }
 }
@@ -256,7 +257,7 @@
   display: inline-block;
   transition: scale 0.5s ease;
   font-size: 20px;
-  margin-right: 5px;
+  padding: 0px 2.5px;
   &:hover {
     scale: 1.4;
     color: var(--theme-color);
@@ -323,13 +324,13 @@
   .edit-text:hover,
   .delete-section-wrapper:hover {
     border: 2px dashed var(--theme-color);
-    padding: 10px;
+    padding: 10px 22px;
   }
   .edit-text:hover {
     .icn {
       opacity: 1;
       &:hover {
-        scale: 1.1;
+        scale: 1.2;
         opacity: 0.8;
       }
     }
@@ -337,14 +338,19 @@
   .delete-section-wrapper:hover {
     .delete-icn {
       opacity: 1;
+      background: var(--theme-color);
+      box-shadow: 0px 1px 4px 2px var(--dark-color);
+      right: 5px;
+      top: 5px;
+      color: var(--light-color) !important;
       &:hover {
-        scale: 1.1;
-        opacity: 0.8;
+        scale: 1.2;
       }
     }
   }
   .edit-section-wrapper {
     pointer-events: none;
+    display: flex;
   }
   .add-project-line {
     border-style: dashed;

@@ -1,4 +1,10 @@
-import { Autocomplete, Grid, TextField, Typography } from "@mui/material";
+import {
+  Autocomplete,
+  DialogTitle,
+  Grid,
+  TextField,
+  Typography,
+} from "@mui/material";
 import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
@@ -81,10 +87,15 @@ const AddSkillModal: React.FC<{ isOpen: boolean; handleClose: () => void }> = ({
             className="active p-0"
             maxWidth="xs"
           >
-            <DialogContent className="p-0 text-center ">
-              <Typography className="py-2 dialog-header" component={"h4"}>
+            <DialogTitle sx={{ p: 0, textAlign: "center", fontWeight: 600 }}>
+              <Typography
+                className="py-2 dialog-header font-semibold"
+                component={"h4"}
+              >
                 Add Skill
               </Typography>
+            </DialogTitle>
+            <DialogContent className="p-0 text-center ">
               <div className="p-4 ">
                 <InputTextField name="name" lbl="Skill Name" />
                 <Grid container>

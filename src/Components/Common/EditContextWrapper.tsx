@@ -3,6 +3,8 @@ import React, { createContext, useContext, useState } from "react";
 import { IconType } from "react-icons";
 import UpdateMainDetail from "./UpdateMainDetail";
 import ProfDetail from "../../../public/profile-detail.json";
+import { usePathname } from "next/navigation";
+import { PROFILE_DETAIL } from "@/utils/Constant";
 
 export type PROF_DETAIL_KEY =
   | "FullName"
@@ -86,7 +88,9 @@ export const EditContext = createContext<{
 const EditContextWrapper: React.FC<{ children: React.ReactElement }> = ({
   children,
 }) => {
-  const [details, setDetails] = useState<any>(ProfDetail);
+  const pathname = usePathname();
+
+  const [details, setDetails] = useState<any>(PROFILE_DETAIL);
   const [selectedKeyDetail, setSelectedKeyDetail] = useState<{
     keyName: PROF_DETAIL_KEY;
     target: EventTarget | null;
@@ -153,10 +157,16 @@ const EditContextWrapper: React.FC<{ children: React.ReactElement }> = ({
         },
       }}
     >
-      <div className={selectedKeyDetail.keyName ? "open-sidebar" : ""}>
+      <div
+        className={
+          selectedKeyDetail.keyName && pathname.includes("create-portfolio")
+            ? "open-sidebar"
+            : ""
+        }
+      >
         {children}
       </div>
-      <UpdateMainDetail />
+      {pathname.includes("create-portfolio") && <UpdateMainDetail />}
     </EditContext.Provider>
   );
 };

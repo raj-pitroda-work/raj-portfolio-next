@@ -30,7 +30,7 @@ const DevSkills = () => {
             <Grid container className="xl:pr-40 lg:pr-14" spacing={2}>
               {values?.Skills?.map((x: any, i: number) => (
                 <Grid item md={4} sm={3} xs={6} key={`grid-${i}`}>
-                  <OpacityAnimation>
+                  <SlideAnimation translate="bottom" delay={0.1} isAllInView>
                     <DeleteComp
                       name="Skills"
                       index={i}
@@ -66,30 +66,32 @@ const DevSkills = () => {
                         </div>
                       </div>
                     </DeleteComp>
-                  </OpacityAnimation>
+                  </SlideAnimation>
                 </Grid>
               ))}
-              {values?.Skills?.length <= 11 && (
+              {/* {values?.Skills?.length <= 11 && (
                 <Grid item md={4} sm={3} xs={6}>
-                  <div className="skill-card-wrapper opacity-65">
-                    <div className="skill-add-card">
-                      <Typography
-                        fontWeight={600}
-                        className="flex justify-center items-center"
-                        component={"div"}
-                        onClick={() => setShowAdd(true)}
-                      >
-                        <BiPlus className="xs:mr-4" />
-                        <Typography className="text-center" component={"div"}>
-                          <span className="lg:text-lg xl:text-lg md:text-lg">
-                            Add
-                          </span>
+                  <SlideAnimation translate="bottom" delay={0.1} isAllInView>
+                    <div className="skill-card-wrapper opacity-65">
+                      <div className="skill-add-card">
+                        <Typography
+                          fontWeight={600}
+                          className="flex justify-center items-center"
+                          component={"div"}
+                          onClick={() => setShowAdd(true)}
+                        >
+                          <BiPlus className="xs:mr-4" />
+                          <Typography className="text-center" component={"div"}>
+                            <span className="lg:text-lg xl:text-lg md:text-lg">
+                              Add
+                            </span>
+                          </Typography>
                         </Typography>
-                      </Typography>
+                      </div>
                     </div>
-                  </div>
+                  </SlideAnimation>
                 </Grid>
-              )}
+              )} */}
             </Grid>
           </div>
         </Grid>

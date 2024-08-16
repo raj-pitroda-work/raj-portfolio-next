@@ -16,8 +16,8 @@ const DeleteComp: React.FC<{
         <span>{children}</span>
         {isDeleteAllowed && (
           <BsTrash3Fill
-            fontSize={28}
-            className="ml-2 delete-icn absolute right-0 top-0 c-theme p-1 cursor-pointer"
+            fontSize={24}
+            className="delete-icn absolute right-0 top-0 c-theme p-1 cursor-pointer"
             color="black"
             onClick={(e) => {
               removeDetails(name, index);

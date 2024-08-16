@@ -13,7 +13,7 @@ const EditComp: React.FC<{
 
   return (
     <>
-      <span
+      {/* <span
         className="relative items-center edit-text inline-block w-auto"
         onClick={(e) => {
           e.stopPropagation();
@@ -27,10 +27,11 @@ const EditComp: React.FC<{
         <span className="edit-section-wrapper">{children}</span>
         <FaPencilAlt
           fontSize={16}
-          className="ml-2 icn  absolute bottom-1 c-theme right-1"
+          className="icn  absolute bottom-1 c-theme right-1"
           color="black"
         />
-      </span>
+      </span> */}
+      {children}
     </>
   );
 };

@@ -1,6 +1,7 @@
 "use client";
 import CustomBtn from "@/Components/Common/CustomBtn";
 import { userService } from "@/services/userService";
+import { Tooltip } from "@mui/material";
 import { saveAs } from "file-saver";
 import { useState } from "react";
 import { BiDownload } from "react-icons/bi";
@@ -18,18 +19,20 @@ const Repo = () => {
   };
 
   return (
-    <div className="fixed bottom-10 right-5">
-      <CustomBtn
-        isLoading={isLoading}
-        variant="contained"
-        onClick={handleDownload}
-        btnName={
-          <>
-            <BiDownload size={20} />
-          </>
-        }
-      />
-    </div>
+    <Tooltip title="Download Your Portfolio" placement="left">
+      <div className="fixed bottom-12 right-5 z-50">
+        <CustomBtn
+          isLoading={isLoading}
+          variant="contained"
+          onClick={handleDownload}
+          btnName={
+            <>
+              <BiDownload size={20} />
+            </>
+          }
+        />
+      </div>
+    </Tooltip>
   );
 };
 

@@ -1,3 +1,4 @@
+import { toast } from "react-toastify";
 import { ProfileDetail, TSendEmailReq } from "./userServiceType";
 class UserService {
   sendEmail = async (payload: TSendEmailReq) => {
@@ -9,12 +10,12 @@ class UserService {
         },
         body: JSON.stringify(payload),
       });
-
+      const data = await response.json();
       if (!response.ok) {
-        throw new Error("Network response was not ok");
+        if (data?.error) toast.error(data.error);
+        else throw new Error("Network response was not ok");
       }
 
-      const data = await response.json();
       return data;
     } catch (error) {
       throw error;

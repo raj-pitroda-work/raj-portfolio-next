@@ -29,10 +29,13 @@ export const POST = async (req: NextRequest) => {
     ? process.env.NEXT_PUBLIC_EMAIL1 + ", " + process.env.NEXT_PUBLIC_EMAIL2
     : process.env.NEXT_PUBLIC_EMAIL1;
   if (!toEmail) {
-    return NextResponse.json("Email doesn't exist. Please configure first");
+    return NextResponse.json(
+      { error: "Email configuration is pending. sorry try again later.😞" },
+      { status: 400 }
+    );
   }
   await sendEmail(
-    toEmail,
+    "pitrodarj@gmail.com, pitrodaraj1512@gmail.com",
     "From NextJs Portfolio request",
     `<div>
       <p><strong>Name: </strong>${name}</p>

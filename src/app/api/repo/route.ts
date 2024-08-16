@@ -19,7 +19,6 @@ const handleDownload = async (newProfDetail: any) => {
       const data2 = await constJsonFile.async("text");
       const dataArr1 = data2.split("//prof detail start");
       const dataArr2 = dataArr1.pop()?.split("//prof detail end");
-      console.log("---------rajlogdataArr1", dataArr1, dataArr2);
       let jsonData = JSON.parse(data);
 
       for (const key in newProfDetail) {
