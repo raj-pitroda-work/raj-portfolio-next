@@ -9,7 +9,7 @@ import { TbBrandNextjs } from "react-icons/tb";
 //prof detail start
 export const PROFILE_DETAIL: any = {
   FullName: "Pitroda Rajkumar Kamleshbhai",
-  Name: "Raj Pitroda 123",
+  Name: "Raj Pitroda",
   Role: "Senior Software Engineer",
   MobileNo: "+918155028499",
   MobileNoForView: "+91 81550 28499",
