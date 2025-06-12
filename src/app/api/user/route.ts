@@ -6,7 +6,7 @@ const sendEmail = async (to: string, subject: string, body: string) => {
     const transporter = nodemailer.createTransport({
       service: "gmail",
       auth: {
-        user: process.env.NEXT_PUBLIC_FROM_EMAIL1,
+        user: process.env.NEXT_PUBLIC_EMAIL1,
         pass: process.env.EMAIL_CRED_APP_PASS,
       },
     });
@@ -25,11 +25,7 @@ const sendEmail = async (to: string, subject: string, body: string) => {
 export const POST = async (req: NextRequest) => {
   const { name, countryCode, mobileNo, email, subject, message } =
     await req.json();
-  console.log(
-    "process.env.NEXT_PUBLIC_EMAIL1",
-    process.env.NEXT_PUBLIC_EMAIL1,
-    process.env
-  );
+
   const toEmail = process.env.NEXT_PUBLIC_EMAIL2
     ? process.env.NEXT_PUBLIC_EMAIL1 + ", " + process.env.NEXT_PUBLIC_EMAIL2
     : process.env.NEXT_PUBLIC_EMAIL1;
