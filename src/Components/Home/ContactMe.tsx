@@ -15,7 +15,7 @@ import { useState } from "react";
 import { CountryData, all } from "country-codes-list";
 import OpacityAnimation from "../Common/Animations/OpacityAnimation";
 import SlideAnimation from "../Common/Animations/SlideAnimation";
-import { Formik } from "formik";
+import { Formik, FormikHelpers } from "formik";
 import * as Yup from "yup";
 import { TSendEmailReq } from "@/services/userServiceType";
 import { toast } from "react-toastify";
@@ -59,16 +59,31 @@ const ContactMe = () => {
   const validationSchema = Yup.object().shape({
     name: Yup.string().required("Name is required."),
     mobileNo: Yup.string()
-      .required("Mobile No is required.")
+      .test(
+        "requireMob",
+        "Either Mobile No or Email is required.",
+        (val, objHelper) => {
+          return objHelper?.parent?.email || val;
+        }
+      )
       .min(9, "Mobile No must be 9 to 14 dig long")
       .max(14, "Mobile No must be 9 to 14 dig long"),
     email: Yup.string()
       .email("Please enter a valid Email.")
-      .required("Email is required."),
+      .test(
+        "requireEmail",
+        "Either Email or  Mobile No is required.",
+        (val, objHelper) => {
+          return objHelper?.parent?.mobileNo || val;
+        }
+      ),
     subject: Yup.string().required("Subject is required."),
   });
 
-  const handleSendMsg = (values: TInitVal) => {
+  const handleSendMsg = (
+    values: TInitVal,
+    formikHelpers: FormikHelpers<TInitVal>
+  ) => {
     setLoading(true);
     const { countryCode, email, message, mobileNo, name, subject } = values;
     const payload: TSendEmailReq = {
@@ -83,8 +98,12 @@ const ContactMe = () => {
       .sendEmail(payload)
       .then((res) => {
         if (res) {
+          formikHelpers.resetForm();
           toast.success(res);
         }
+      })
+      .catch(() => {
+        toast.error("Unable to send the email. Please try again later.");
       })
       .finally(() => {
         setLoading(false);

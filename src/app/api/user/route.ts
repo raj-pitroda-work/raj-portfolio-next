@@ -34,8 +34,8 @@ export const POST = async (req: NextRequest) => {
       { status: 400 }
     );
   }
-  await sendEmail(
-    "pitrodarj@gmail.com, pitrodaraj1512@gmail.com",
+  const isSend = await sendEmail(
+    toEmail,
     "From NextJs Portfolio request",
     `<div>
       <p><strong>Name: </strong>${name}</p>
@@ -45,5 +45,6 @@ export const POST = async (req: NextRequest) => {
       <p><strong>Message: </strong>${message}</p>
   </div>`
   );
-  return NextResponse.json("Message sent successfully.");
+  if (isSend) return NextResponse.json("Message sent successfully.");
+  else NextResponse.json({ error: "Failed to send response" }, { status: 500 });
 };
