@@ -1,4 +1,4 @@
-import { Autocomplete, InputAdornment, TextField } from "@mui/material";
+import { TextField } from "@mui/material";
 import { useField, useFormikContext } from "formik";
 import React from "react";
 
@@ -47,9 +47,10 @@ const InputTextField: React.FC<{
               setValue(e.target.value);
             }
           }}
+          InputProps={{ autoComplete: "new-password" }}
           onBlur={(e) => {
-            setFieldValue(name, e.target.value?.trim(), true);
             setFieldTouched(name, true, true);
+            setFieldValue(name, e.target.value?.trim(), true);
             if (setValue) {
               setValue(e.target.value?.trim());
             }

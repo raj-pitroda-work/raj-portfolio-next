@@ -13,7 +13,8 @@ class UserService {
       const data = await response.json();
       if (!response.ok) {
         if (data?.error) toast.error(data.error);
-        else throw new Error("Network response was not ok");
+        else toast.error("Unable to send the email. Please try again later.");
+        throw new Error(data);
       }
 
       return data;

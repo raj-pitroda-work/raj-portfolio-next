@@ -102,9 +102,6 @@ const ContactMe = () => {
           toast.success(res);
         }
       })
-      .catch(() => {
-        toast.error("Unable to send the email. Please try again later.");
-      })
       .finally(() => {
         setLoading(false);
       });
