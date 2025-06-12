@@ -31,7 +31,7 @@ export const PROFILE_DETAIL: any = {
   WhatsAppNo: "918155028499",
   Experience: `${totalExp}+ years`,
   ResumeLink:
-    "https://drive.google.com/file/d/1glmxZRID83nCkCrGKdPZPoaMinVxq8vF",
+    "https://drive.google.com/file/d/1MtPbB52zi95DO_Ow_7hRIFJ9y6RJuA7W",
   ShortBio:
     "Experienced frontend developer proficient in HTML, CSS, SCSS and JavaScript, with expertise in React JS and Next JS. Dedicated to crafting intuitive user interfaces, optimizing performance, and embracing modern web technologies. Passionate about  impactful digital experiences. Let's collaborate on creating exceptional web applications.",
   UpdatedAt: `${currentDate.format("MMMM")} - ${currentDate.format("yyyy")}`,
