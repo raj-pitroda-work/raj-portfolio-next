@@ -7,7 +7,7 @@ const sendEmail = async (to: string, subject: string, body: string) => {
       service: "gmail",
       auth: {
         user: process.env.NEXT_PUBLIC_EMAIL1,
-        pass: process.env.EMAIL_CRED_APP_PASS,
+        pass: process.env.EMAIL_CRED_APP_PASSsss,
       },
     });
 
@@ -47,5 +47,9 @@ export const POST = async (req: NextRequest) => {
   </div>`
   );
   if (isSend) return NextResponse.json("Message sent successfully.");
-  else NextResponse.json({ error: "Failed to send response" }, { status: 500 });
+  else
+    return NextResponse.json(
+      { error: "Unable to send the email. Please try again later." },
+      { status: 500 }
+    );
 };
