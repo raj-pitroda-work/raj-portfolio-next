@@ -8,6 +8,7 @@ import OpacityAnimation from "../Common/Animations/OpacityAnimation";
 import SlideScaleAnimation from "../Common/Animations/SlideScaleAnimation";
 import { GetUserContextValue } from "../Common/EditContextWrapper";
 import EditComp from "../Common/EditComp";
+import Typewriter from "../Common/Animations/TypewriterEffect";
 
 const MainBanner = () => {
   const values = GetUserContextValue();
@@ -18,8 +19,10 @@ const MainBanner = () => {
       id="MainBannerWrapperId"
     >
       <Grid item md={6.5} sm={12} className="xs:text-center md:text-left">
-        <Typography component={"p"} className="xs:text-xl md:text-lg">
-          <SlideAnimation translate="right">Hello There!</SlideAnimation>
+        <Typography component={"p"} className="xs:text-xl md:text-lg ">
+          <SlideAnimation translate="right">
+            <Typewriter text="Hello There!" />
+          </SlideAnimation>
         </Typography>
         <Typography component={"h2"} className="mt-2">
           <SlideAnimation translate="right" delay={0.1}>
@@ -39,7 +42,7 @@ const MainBanner = () => {
           <EditComp name="ResumeLink">
             <CustomBtn
               btnName="Resume / CV"
-              className="font-semibold md:text-2xl xs:text-3xl border-3 xs:m-2 md:m-0 theme-style"
+              className="font-semibold md:text-2xl xs:text-2xl border-3 xs:m-2 md:m-0 theme-style"
               onClick={() => window.open(values.ResumeLink, "_blank")}
             ></CustomBtn>
           </EditComp>

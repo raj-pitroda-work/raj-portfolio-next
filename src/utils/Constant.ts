@@ -1,10 +1,22 @@
 //import start
 import { AiOutlineGithub } from "react-icons/ai";
+import { SiNestjs, SiNodedotjs } from "react-icons/si";
 import { BsFiletypeCss, BsFiletypeScss } from "react-icons/bs";
 import { FaReact } from "react-icons/fa";
 import { SiJavascript, SiRedux, SiTypescript } from "react-icons/si";
 import { TbBrandNextjs } from "react-icons/tb";
+import moment from "moment";
+import { BiLogoPostgresql } from "react-icons/bi";
+
 //import end
+
+const currentDate = moment();
+const currentYear = currentDate.format("yyyy");
+
+const startDate = moment("01/10/2020", "dd/mm/yyyy");
+const startYear = startDate.format("yyyy");
+
+const totalExp = +currentYear - +startYear;
 
 //prof detail start
 export const PROFILE_DETAIL: any = {
@@ -17,59 +29,78 @@ export const PROFILE_DETAIL: any = {
   AllEmail: "pitrodarj@gmail.com; pitrodaraj1512@gmail.com",
   LinkedIn: "https://www.linkedin.com/in/pitroda-rajkumar-09a861271/",
   WhatsAppNo: "918155028499",
-  Experience: "4+ years",
+  Experience: `${totalExp}+ years`,
   ResumeLink:
-    "https://drive.google.com/file/d/1js3vjJPEAlfkDNASvi2eGiqVf1_FWgQR/view?usp=sharing",
+    "https://drive.google.com/file/d/1glmxZRID83nCkCrGKdPZPoaMinVxq8vF",
   ShortBio:
-    "Experienced frontend developer proficient in HTML, CSS, SCSS and JavaScript, with expertise in React and Next. Dedicated to crafting intuitive user interfaces, optimizing performance, and embracing modern web technologies. Passionate about  impactful digital experiences. Let's collaborate on creating exceptional web applications.",
-  UpdatedAt: "May-2024",
+    "Experienced frontend developer proficient in HTML, CSS, SCSS and JavaScript, with expertise in React JS and Next JS. Dedicated to crafting intuitive user interfaces, optimizing performance, and embracing modern web technologies. Passionate about  impactful digital experiences. Let's collaborate on creating exceptional web applications.",
+  UpdatedAt: `${currentDate.format("MMMM")} - ${currentDate.format("yyyy")}`,
   Skills: [
     {
       name: "React JS",
-      experience: "4+ Years",
+      experience: `${totalExp}+ Years`,
       icon: FaReact,
       icnColor: "#50BBD7",
     },
     {
       name: "Redux",
-      experience: "3+ Years",
+      experience: `${totalExp - 2}+ Years`,
       icon: SiRedux,
       icnColor: "#7248B6",
     },
     {
       name: "Typescript",
-      experience: "3+ Years",
+      experience: `${totalExp - 1}+ Years`,
       icon: SiTypescript,
       icnColor: "#1573C0",
     },
     {
       name: "Javascript",
-      experience: "4+ Years",
+      experience: `${totalExp - 1}+ Years`,
       icon: SiJavascript,
       icnColor: "#EFD81D",
     },
 
     {
       name: "SCSS",
-      experience: "1.2+ Years",
+      experience: `${totalExp - 3.5}+ Years`,
       icon: BsFiletypeScss,
       icnColor: "#C86394",
     },
     {
       name: "CSS",
-      experience: "3+ Years",
+      experience: `${totalExp - 2}+ Years`,
       icon: BsFiletypeCss,
       icnColor: "#2649E4",
     },
     {
       name: "Next JS",
-      experience: "1.5+ Years",
+      experience: `${totalExp - 3}+ Years`,
       icon: TbBrandNextjs,
       icnColor: "#04417B",
     },
     {
+      name: "Node JS",
+      experience: `1+ Years`,
+      icon: SiNodedotjs,
+      icnColor: "#417E38",
+    },
+    {
+      name: "Nest JS",
+      experience: `1+ Years`,
+      icon: SiNestjs,
+      icnColor: "#EA2863",
+    },
+    {
+      name: "Postgresql",
+      experience: `0.5+ Years`,
+      icon: BiLogoPostgresql,
+      icnColor: "#336791",
+    },
+
+    {
       name: "Github",
-      experience: "3+ Years",
+      experience: `${totalExp - 1}+ Years`,
       icon: AiOutlineGithub,
       icnColor: "#ff5a1e",
     },
@@ -77,86 +108,134 @@ export const PROFILE_DETAIL: any = {
   Projects: [
     {
       id: 1,
-      name: "SM-FRONT (E-COMMERCE MEDICINE PURCHASE)",
-      desc: `Developed an e-commerce platform using Next.js with Tyescript
-and Redux with multilanguage support for purchasing medicines.
-Created and integrated various modules/features including:
-• User authentication functionalities: Login, Register, Forgot
-Password, Reset Password. Public information pages: Contact Us,
-Terms and Conditions, About Us. Home page showcasing latest,
-trending, and most purchased medicines with images.
-Implemented a feature allowing users to upload doctor
-prescriptions for specific medicine orders. Cart management
-functionalities: Add to cart, Remove from cart. Paginated and
-filterable medicine listing page for user convenience. Multiple
-address support for flexible order placement. Implemented multilanguage support for a diverse user base. Integrated Razorpay for
-secure payment processing. Implemented an image gallery for
-medicines and order tracking functionality.`,
+      name: "Health-Ease",
+      html: `<p>
+                Developed a comprehensive e-commerce and telemedicine platform allowing users to purchase medicines,
+                book doctor appointments (video, clinic, and home visits), and order lab tests, built with seamless
+                <strong>Zoom SDK</strong> integration. The platform incorporates several modules and features:
+              </p>
+              <ul>
+                <li>User authentication and role-based access.</li>
+                <li>Doctor appointment booking with time-slot selection for video calls (via <strong>Zoom SDK</strong>), clinic visits, and home visits.</li>
+                <li>Online purchase of medicines and health-related products.</li>
+                <li>Integrated lab test ordering and report access.</li>
+                <li>Cart management for streamlined purchases.</li>
+                <li>Secure payment processing for all transactions.</li>
+                <li>Intuitive user interface for easy navigation and booking.</li>
+                <li><strong>Multi-language</strong> support for a diverse user base.</li>
+                <li>Real-time notifications for appointments and order status updates.</li>
+                <li>Comprehensive admin dashboard for managing appointments, inventory, and user activity.</li>
+              </ul>
+              <p>
+                Technology used: <strong>Next JS, Typescript, Redux</strong>
+              </p>`,
     },
     {
       id: 2,
-      name: "SM-ADMIN (E-COMMERCE ADMIN)",
-      desc: `Developed an e-commerce admin panel using React.js with
-  Tyescript and Redux with multilanguage support.
-  Created and integrated various modules/features including:
-  • User authentication functionalities: Login, Register, Forgot
-  Password, Reset Password. Crud for Product Management, Order
-  Verification and Tracking, User and Role Management, Inventory
-  Management, Medicine list etc`,
+      name: "Currency Exchange",
+      html: `<p>
+              Developed a comprehensive currency exchange platform with real-time updates, user, currency, Beneficiary management, and Power BI integration.
+              The platform facilitated secure and real-time currency exchange, supported by an efficient management system with the following features:
+             </p>
+            <ul>
+              <li>User authentication: login, registration, forgot password, reset password.</li>
+              <li>Role-based authorization to manage secure access for admins, affiliates, and users.</li>
+              <li>Configurable modules: affiliate settings, admin pages, beneficiary setup, currency and country management, and task assignments.</li>
+              <li>User profile management: edit details, manage roles, and upload KYC/verification documents.</li>
+              <li>Live exchange currency rates and updates using <strong>WebSocket</strong>.</li>
+              <li><strong>Power BI</strong> reports integration for advanced analytics and insights.</li>
+              <li>Comprehensive admin dashboard for system monitoring and control.</li>
+              <li>Responsive design for seamless access across devices.</li>
+              <li>Enhanced data security and encryption for sensitive financial transactions.</li>
+            </ul>
+            <p>
+              Technology used: <strong>React JS, Typescript, Recoil</strong>
+            </p>`,
     },
     {
       id: 3,
-      name: `. INSMART PAT IENT`,
-      desc: `Developed website panel using Next.js with Tyescript and Redux
-  to facilitating direct interaction and appointment bookings with
-  registered hospitals and doctors for various ailments.
-  Created and integrated various modules/features including:
-  • User authentication functionalities: Login, Register, Forgot
-  Password, Reset Password. Public information pages: Contact Us,
-  Terms and Conditions, About Us. Dashboard and Doctor Listing.
-  Appointment Booking and Management. Promotions and
-  Discount. Address Management and User Tracking. Appointment
-  Listing and based on Doctor availability slot listing.`,
+      name: `Dynamic Form Building`,
+      html: `<p>
+              Developed a dynamic form builder website. A dynamic form builder website enabling users to create, configure, and manage custom forms with various controls and dynamic validation.
+            </p>
+            <p>The platform incorporates several modules and features:</p>
+            <ul>
+              <li>Dynamic form creation and configuration.</li>
+              <li>Administration and configuration modules.</li>
+              <li>Lookup management.</li>
+              <li>Vector management.</li>
+              <li>Dynamic form controls including text fields, dropdowns, map controls, HTML editor, and sketchpad controls, with dynamic validation.</li>
+              <li>Role-based access to forms.</li>
+              <li><strong>Google Map</strong> Integration.</li>
+              <li>Workflow management.</li>
+            </ul>
+            <p>
+              Technology used: <strong>React JS, Typescript, Redux, Nest JS</strong>
+            </p>`,
     },
     {
       id: 4,
-      name: `INSMART ADMIN`,
-      desc: `Developed a dynamic form builder website using React.js with
-  Tyescript and Redux and for backend used .Net web api, MSSQL.
-  Created and integrated various modules/features including:
-  • User authentication functionalities: Login, Register, Forgot
-  Password, Reset Password. Dynamic Form Creation,
-  Administration and Configuration, Lookups Management, Vector
-  management, Dynamic Form control like Textfield, Dropdown,
-  Map Control, HTML editor, Sketchpad Control with dynamic
-  validation. Role based form access`,
+      name: `SM-FRONT (E-COMMERCE MEDICINE PURCHASE)`,
+      html: `<p>
+              Developed an e-commerce platform with <strong>multi-language</strong> support for purchasing medicines and some <strong>SSR Page</strong> implementation for <strong>SEO</strong>.
+              The platform includes several integrated modules and features:
+            </p>
+            <ul>
+              <li>User authentication: login, registration, forgot password, and password reset functionalities.</li>
+              <li>Public information pages: Contact Us, Terms and Conditions, and About Us.</li>
+              <li>A home page displaying the latest, trending, and most purchased medicines.</li>
+              <li>A prescription upload feature enabling users to attach doctor prescriptions for specific medicine orders.</li>
+              <li>Comprehensive cart management: add to cart, remove from cart.</li>
+              <li>A paginated and filterable medicine listing page to enhance user convenience.</li>
+              <li>Support for multiple delivery addresses, offering flexible order placement.</li>
+              <li><strong>Multi-language</strong> support to cater to a diverse user base.</li>
+              <li>Razorpay integration for secure payment processing.</li>
+              <li>An image gallery for medicines and an order tracking feature for customers.</li>
+            </ul>
+            <p>
+              Technology used: <strong>Next JS, Typescript, Redux</strong>
+            </p>`,
     },
     {
       id: 5,
-      name: `TWITTER CAMPAIGN MANAGMENT`,
-      desc: `Developed a website using website using React.js with Tyescript
-  and Redux. The system facilitated automated interaction with
-  campaign audiences
-  Created and integrated various modules/features including:
-  • User authentication functionalities: Login, Register, Forgot
-  Password, Reset Password Campaign Management. Configured
-  campaign collections with multiple entities for campaign
-  organization and management. Document Management and
-  Authentication`,
+      name: `SM-ADMIN (E-COMMERCE ADMIN)`,
+      html: `<p>
+              Developed an e-commerce admin panel for managing products, orders, users, and inventory, with authentication and role-based access.
+              This platform includes several integrated modules and features:
+            </p>
+            <ul>
+              <li>User authentication: login, registration, forgot password, and password reset functionalities.</li>
+              <li>Product configuration.</li>
+              <li>Order verification and tracking.</li>
+              <li>User and role management.</li>
+              <li>Inventory management.</li>
+              <li>Medicine list management and other essential modules.</li>
+            </ul>
+            <p>
+              Technology used: <strong>React JS, Typescript, Redux</strong>
+            </p>`,
     },
     {
       id: 6,
-      name: `ISCTV9 - CURRENCY EXCHANGE MANAGEMENT`,
-      desc: `Developed a website using website using React.js with Tyescript
-  and Redux. The system facilitated currency exchange.
-  Created and integrated various modules/features including:
-  • User authentication functionalities: Login, Register, Forgot
-  Password, Reset Password, Role based authorization, configured
-  settings for Affiliate, Admin Pages, Beneficiary, Currency, Country,
-  and Task, enabling efficient system management. Implemented
-  functionalities for users to edit profile details, manage roles, and
-  upload documents, Live Currency Exchange Rates, Power BI
-  Reports Integration.`,
+      name: `Loanfity`,
+      html: `<p>
+              Developed a loan simulator and application platform with Nafath integration, enabling users to simulate loan options and securely apply for loans.
+              The platform includes several robust modules and features:
+            </p>
+            <ul>
+              <li>User authentication via <strong>Nafath</strong> for secure, national-level identity verification.</li>
+              <li>Dynamic loan simulator for calculating monthly installments, interest rates, and payment schedules.</li>
+              <li>Loan application form with document upload and real-time status tracking.</li>
+              <li>Personalized dashboard displaying loan simulation results and application history.</li>
+              <li>Integration with external APIs to ensure up-to-date financial data and loan responses.</li>
+              <li>Responsive and user-friendly design for seamless access across devices.</li>
+              <li>Real-time notifications for application updates and loan-related alerts.</li>
+              <li><strong>Firebase push notification.</strong></li>
+              <li>Robust data security and encryption to safeguard sensitive financial information.</li>
+            </ul>
+            <p>
+              Technology used: <strong>React JS, Typescript</strong>
+            </p>`,
     },
   ],
 };

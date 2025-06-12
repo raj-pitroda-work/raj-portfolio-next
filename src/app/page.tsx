@@ -8,7 +8,7 @@ import ProjectDetail from "@/Components/Home/ProjectDetail";
 export default function Home() {
   return (
     <div className="home-wrapper ">
-      <div className="circle-navigation-wrapper flex flex-col">
+      <div className="circle-navigation-wrapper hidden md:flex flex-col">
         <RenderRedirectLink className="circle" hideText />
       </div>
       <MainBanner />

@@ -13,7 +13,7 @@ const SocialHandlers: React.FC<{ icnClass: string; hideLbl?: boolean }> = ({
   return (
     <div className="flex items-center">
       {!hideLbl && (
-        <span className="xl:text-2xl lg:text-lg xs:text-xl font-medium -mt-1.5">
+        <span className="xl:text-2xl lg:text-lg xs:text-xl font-medium md:-mt-1">
           Contact Me :
         </span>
       )}

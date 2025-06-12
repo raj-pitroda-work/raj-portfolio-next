@@ -6,6 +6,7 @@ import EditComp from "../Common/EditComp";
 
 const Footer = () => {
   const values = GetUserContextValue();
+  const year = new Date().getFullYear();
   return (
     <>
       <div className="footer-wrapper h-full p-2 flex xs:flex-col md:flex-row items-center justify-between text-gray-200">
@@ -20,7 +21,7 @@ const Footer = () => {
             Developed By: <EditComp name="Name">{values.Name}</EditComp>
           </p>
           <p className="xs:text-sm md:text-sm ">
-            ©2024 Copyright all rights reserved
+            ©{year} Copyright all rights reserved
           </p>
         </div>
         <p className="mr-4 md:text-sm xs:text-sm xs:mt-0.5 md:mt-0">

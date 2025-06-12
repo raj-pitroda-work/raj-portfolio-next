@@ -247,9 +247,15 @@
 
   .project-detail {
     background-color: var(--bg1);
-    padding: 5px;
+    padding: 12px 20px;
+    border-radius: 5px;
     width: 99%;
     box-shadow: 5px 5px 1px -1px var(--dark-color);
+
+    ul {
+      list-style: disc;
+      margin: 8px 0 8px 24px;
+    }
   }
 }
 
@@ -388,6 +394,30 @@
   }
 }
 
+.typewriter {
+  font-size: 1.2rem;
+  border-right: 2px solid var(--theme-color);
+  white-space: nowrap;
+  overflow: hidden;
+  width: 9.5ch;
+  animation: typing-deleting 5s steps(12) infinite;
+}
+
+@keyframes typing-deleting {
+  0% {
+    width: 0ch;
+  }
+  40% {
+    width: 9.5ch;
+  }
+  60% {
+    width: 9.5ch;
+  }
+  100% {
+    width: 0ch;
+  }
+}
+
 @media screen and (max-width: 1199px) {
   body,
   html {
@@ -469,5 +499,11 @@
   body,
   html {
     font-size: 0.75rem !important;
+  }
+}
+
+@media screen and (max-width: 399px) {
+  h1 {
+    font-size: 4.2rem !important;
   }
 }

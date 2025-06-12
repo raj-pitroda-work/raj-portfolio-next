@@ -28,7 +28,7 @@ const ProjectDetail: React.FC = () => {
         <Grid
           item
           md={5}
-          className="flex justify-center sticky top-[190px] h-fit mt-6"
+          className=" justify-center sticky top-[190px] h-fit mt-6 hidden md:flex"
         >
           <OpacityAnimation>
             <FreePikImgRender
@@ -56,22 +56,49 @@ const ProjectDetail: React.FC = () => {
                 index={i}
                 isDeleteAllowed={i > 0 || values.Projects?.length > 1}
               >
-                <Typography component={"div"} className="project-detail">
-                  <h5 className="text-xl font-semibold">
-                    <EditComp name="Projects" subKey="name" index={i}>
-                      {i + 1}. {x.name}
-                    </EditComp>
-                  </h5>
-                  <Typography
-                    component={"p"}
-                    variant="body2"
-                    className="opacity-[0.83] text-base text-justify"
-                  >
-                    <EditComp name="Projects" subKey="desc" index={i}>
-                      {x.desc}
-                    </EditComp>
+                {x.html ? (
+                  <Typography component={"div"} className="project-detail">
+                    <h5 className="text-xl font-semibold mb-1">
+                      <EditComp name="Projects" subKey="name" index={i}>
+                        {i + 1}. {x.name}
+                      </EditComp>
+                    </h5>
+                    <Typography
+                      component={"div"}
+                      variant="body2"
+                      className=" text-base text-justify"
+                      dangerouslySetInnerHTML={{ __html: x.html }}
+                    ></Typography>
                   </Typography>
-                </Typography>
+                ) : (
+                  <Typography component={"div"} className="project-detail">
+                    <h5 className="text-xl font-semibold">
+                      <EditComp name="Projects" subKey="name" index={i}>
+                        {i + 1}. {x.name}
+                      </EditComp>
+                    </h5>
+                    <Typography
+                      component={"div"}
+                      variant="body2"
+                      className="opacity-[0.92] text-base text-justify"
+                    >
+                      <EditComp name="Projects" subKey="desc" index={i}>
+                        {x.desc}
+                      </EditComp>
+                      <ul className="mt-2 list-disc ml-6">
+                        {x.details?.map((feat: string, j: number) => {
+                          return <li key={`feature-${i}-${j}`}>{feat}</li>;
+                        })}
+                      </ul>
+                    </Typography>
+                    {x.technology && (
+                      <Typography variant="body2" mt={1} fontSize={16}>
+                        <strong className="font-bold">Technology used: </strong>
+                        {x.technology}
+                      </Typography>
+                    )}
+                  </Typography>
+                )}
               </DeleteComp>
               <div
                 className="opacity-0 hover:opacity-100 flex items-center justify-center w-full relative mt-1"
