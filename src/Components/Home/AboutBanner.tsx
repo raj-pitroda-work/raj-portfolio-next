@@ -1,6 +1,7 @@
 "use client";
 import {
   Grid,
+  IconButton,
   Table,
   TableBody,
   TableCell,
@@ -18,9 +19,13 @@ import {
   PROF_DETAIL_KEY,
 } from "../Common/EditContextWrapper";
 import EditComp from "../Common/EditComp";
+import { IoMdCheckmark } from "react-icons/io";
+import { useState } from "react";
 
 const AboutBanner = () => {
   const values: any = GetUserContextValue();
+  const [showClipIcn, setShowClipIcn] = useState("");
+
   const renderCopyTableCell = (
     href: string,
     displayText: PROF_DETAIL_KEY,
@@ -34,11 +39,21 @@ const AboutBanner = () => {
               {values[displayText] as string}
             </a>
           </EditComp>
-          <IoIosCopy
-            title="Copy"
-            fontSize={22}
-            onClick={() => navigator.clipboard.writeText(displayText)}
-          />
+          <IconButton
+            onClick={() => {
+              navigator.clipboard.writeText(values[displayText]);
+              setShowClipIcn(displayText);
+              setTimeout(() => {
+                setShowClipIcn("");
+              }, 1000);
+            }}
+          >
+            {showClipIcn === displayText ? (
+              <IoMdCheckmark title="Copied!!" fontSize={21} />
+            ) : (
+              <IoIosCopy title="Copy" fontSize={21} />
+            )}
+          </IconButton>
         </div>
       </TableCell>
     );
@@ -92,13 +107,13 @@ const AboutBanner = () => {
                   </TableCell>
                 </TableRow>
                 <TableRow>
-                  <TableCell>
+                  <TableCell className="mt-1.5">
                     <MdEmail fontSize={26} className="mr-2" /> Email
                   </TableCell>
                   {renderCopyTableCell(`mailto:${values.AllEmail}`, `AllEmail`)}
                 </TableRow>
                 <TableRow>
-                  <TableCell>
+                  <TableCell className="mt-1.5">
                     <IoMdCall fontSize={26} className="mr-2" /> Contact No
                   </TableCell>
                   {renderCopyTableCell(
@@ -107,7 +122,7 @@ const AboutBanner = () => {
                   )}
                 </TableRow>
                 <TableRow>
-                  <TableCell>
+                  <TableCell className="mt-1.5">
                     <RiLinkedinFill fontSize={26} className="mr-2" /> Linked In
                   </TableCell>
                   {renderCopyTableCell(values.LinkedIn, "LinkedIn", true)}
