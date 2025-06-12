@@ -7,7 +7,7 @@ const sendEmail = async (to: string, subject: string, body: string) => {
       service: "gmail",
       auth: {
         user: process.env.NEXT_PUBLIC_EMAIL1,
-        pass: process.env.EMAIL_CRED_APP_PASSsss,
+        pass: process.env.EMAIL_CRED_APP_PASS,
       },
     });
 
