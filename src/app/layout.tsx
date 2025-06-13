@@ -11,6 +11,8 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Raj Portfolio",
+  description:
+    "Expert in React JS and Next JS with 5 years of experience crafting dynamic, high-performance web applications, complemented by working knowledge of Node JS Nest JS for backend support.",
 };
 
 export default function RootLayout({
